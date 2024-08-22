@@ -1,24 +1,4 @@
-# sttaiart
+# stt-ai-art 프론트엔드
+음성 텍스트 변환 및 GPT 기반 이미지 생성
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+교육에서의 활용 서비스
