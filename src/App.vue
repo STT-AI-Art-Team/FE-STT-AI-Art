@@ -7,7 +7,7 @@
       </div>
       <nav class="nav">
         <router-link to="/">MAIN</router-link>
-        <router-link to="/classroom">교실 연결하기</router-link>
+
       </nav>
       <div class="user-actions">
         <button class="bell"></button>

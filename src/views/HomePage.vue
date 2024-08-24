@@ -4,7 +4,7 @@
       <div class="mic-icon">
         <img src="../assets/mic-icon.png" alt="Microphone">
       </div>
-      <p>교실의 코드를 입력하세요.</p>
+      <h1>교실의 코드를 입력하세요.</h1>
       <p>담당 선생님께서 띄워주는 숫자를 작성해주세요!</p>
 
       <!-- 입력 필드 -->
