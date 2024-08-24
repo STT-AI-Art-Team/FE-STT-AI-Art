@@ -1,23 +1,23 @@
 <template>
   <div id="app">
     <header class="header">
-      <div class="logo" v-if="showOnThisPage">
+      <div class="logo">
         <img src="./assets/mic-icon.png" alt="Logo">
         <span>our title</span>
       </div>
-      <nav class="nav" v-if="showOnThisPage">
-        <a href="#" @click.prevent="goHome">MAIN</a>
-        <a href="#" @click.prevent="connectToClass">교실 연결하기</a>
+      <nav class="nav">
+        <router-link to="/">MAIN</router-link>
+        <router-link to="/classroom">교실 연결하기</router-link>
       </nav>
-      <div class="user-actions" v-if="showOnThisPage">
+      <div class="user-actions">
         <button class="bell"></button>
         <button class="user"></button>
         <button class="add">추가하기 +</button>
       </div>
     </header>
-
-    <!-- 이곳에 라우트 컴포넌트가 렌더링됩니다 -->
-    <router-view></router-view>
+    <main class="main-content">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
