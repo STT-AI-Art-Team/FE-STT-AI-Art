@@ -1,42 +1,58 @@
 <template>
   <div id="app">
     <header class="header">
-      <div class="logo">
-        <img src="./assets/logo.png" alt="Logo">
+      <div class="logo" v-if="showOnThisPage">
+        <img src="./assets/mic-icon.png" alt="Logo">
         <span>our title</span>
       </div>
-      <nav class="nav">
-        <a href="#">MAIN</a>
-        <a href="#">교실 연결하기</a>
+      <nav class="nav" v-if="showOnThisPage">
+        <a href="#" @click.prevent="goHome">MAIN</a>
+        <a href="#" @click.prevent="connectToClass">교실 연결하기</a>
       </nav>
-      <div class="user-actions">
+      <div class="user-actions" v-if="showOnThisPage">
         <button class="bell"></button>
         <button class="user"></button>
         <button class="add">추가하기 +</button>
       </div>
     </header>
 
-    <main class="main-content">
-      <div class="mic-icon">
-        <img src="./assets/mic-icon.png" alt="Microphone">
-      </div>
-      <p>교실의 코드를 입력하세요.</p>
-      <p>담당 선생님께서 띄워주는 숫자를 작성해주세요!</p>
-      <div class="code-box">261 630 8288</div>
-
-      <button class="connect-button">연결하기</button>
-    </main>
+    <!-- 이곳에 라우트 컴포넌트가 렌더링됩니다 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      classCode: '' // 입력된 코드를 저장하는 데이터
+    }
+  },
+  computed: {
+    showOnThisPage() {
+      // 홈 페이지에 있을 때만 요소를 표시
+      return this.$route.path === '/';
+    }
+  },
+  methods: {
+    connectToClass() {
+      const correctCode = '123456789'; // 올바른 코드
+      if (this.classCode === correctCode) {
+        // 올바른 코드가 입력되면 /classroom 페이지로 이동
+        this.$router.push({ name: 'classroom' });
+      } else {
+        alert('잘못된 코드입니다. 다시 입력해주세요.');
+      }
+    },
+    goHome() {
+      this.$router.push({ path: '/' });
+    }
+  }
 }
 </script>
-
 <style scoped>
-/* 기본 스타일 */
+/* 기존 스타일 유지 */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,6 +62,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 
 .header {
   display: flex;
@@ -75,6 +92,7 @@ export default {
   margin: 0 15px;
   text-decoration: none;
   color: #333;
+  cursor: pointer;
 }
 
 .user-actions {
@@ -103,12 +121,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px; /* 기본 최대 너비 설정 */
-  padding: 0 20px; /* 좌우 패딩 추가 */
+  max-width: 800px;
+  padding: 0 20px;
 }
 
 .mic-icon {
-  margin-top: 30px; /* 아이콘 위에 여백 추가 */
+  margin-top: 30px;
 }
 
 .mic-icon img {
@@ -116,13 +134,15 @@ export default {
   height: 60px;
 }
 
-.code-box {
+.code-input {
   font-size: 32px;
   margin: 20px 0;
   padding: 10px 20px;
   border: 1px solid #51903B;
   border-radius: 8px;
   color: #51903B;
+  width: 300px;
+  text-align: center;
 }
 
 .connect-button {
@@ -139,17 +159,18 @@ export default {
 @media (max-width: 600px) {
   .main-content {
     max-width: 100%;
-    padding: 0 10px; /* 작은 화면에서 패딩 조정 */
+    padding: 0 10px;
   }
 
-  .code-box {
-    font-size: 24px; /* 작은 화면에서 폰트 크기 조정 */
-    padding: 8px 15px; /* 작은 화면에서 패딩 조정 */
+  .code-input {
+    font-size: 24px;
+    padding: 8px 15px;
+    width: 100%;
   }
 
   .connect-button {
-    padding: 8px 15px; /* 작은 화면에서 패딩 조정 */
-    font-size: 16px; /* 작은 화면에서 폰트 크기 조정 */
+    padding: 8px 15px;
+    font-size: 16px;
   }
 }
 </style>
