@@ -1,10 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './views/HomePage.vue';
-import ClassroomPage from './views/ClassRoom.vue'; // ClassRoom.vue가 ClassroomPage로 가정됩니다
-
+import ClassroomPage from './views/ClassRoom.vue'; // Assuming ClassRoom.vue is ClassroomPage
+import PickTypePage from './views/PickType.vue'; // Import the new PickType.vue
+import MakeIDPage from './views/MakeID.vue'; // Import MakeID.vue
+import AccessPage from './views/Access.vue'; 
 const routes = [
   {
     path: '/',
+    name: 'pick-type',
+    component: PickTypePage // Make PickType.vue the default route
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomePage
   },
@@ -12,12 +19,22 @@ const routes = [
     path: '/classroom',
     name: 'classroom',
     component: ClassroomPage
+  },
+  {
+    path: '/make-id', // Add the new route for MakeID
+    name: 'make-id',
+    component: MakeIDPage // Set the component for this route
+  },
+  {
+    path: '/access', // Add the new route for MakeID
+    name: 'access',
+    component: AccessPage // Set the component for this route
   }
-  // 다른 라우트 설정이 필요할 경우 추가
+  // Add more routes here if needed
 ];
 
 const router = createRouter({
-  history: createWebHistory(), // Vue Router 4에서 history 모드 사용
+  history: createWebHistory(), // Vue Router 4 using history mode
   routes
 });
 

@@ -3,7 +3,7 @@
     <header class="header">
       <div class="logo">
         <img src="./assets/mic-icon.png" alt="Logo">
-        <span>our title</span>
+        <span>Drory</span>
       </div>
       <nav class="nav">
         <router-link to="/">MAIN</router-link>
