@@ -1,44 +1,41 @@
 <template>
     <div class="logo-container">
       <img src="@/assets/mic-icon.png" alt="로고" />
-      <span>회원가입</span>
+      <span>로그인</span>
     </div>
     <div class="pick-type-container">
       <div class="progress">
-        <p>3/3</p>
+        <p>2/3</p>
         <div class="progress-bar">
           <div class="progress-filled"></div>
         </div>
       </div>
-      <h2>교사 인증을 진행해주세요.</h2>
-      <label for="usercode" class="label">선생님 접근 코드를 작성해주세요.</label>
-      <input type="text" id="usercode" v-model="usercode" class="input-field" />
-      <p class="small-text">교사 인증 코드를 작성하는 공간입니다.</p>
+      <h2>아이디와 비밀번호를 입력하세요!</h2>
+      <label for="username" class="label">아이디를 입력하세요</label>
+      <input type="text" id="username" v-model="username" class="input-field" />
 
-      <button @click="save" class="save-button">확인하기</button>
+      <label for="password" class="label">비밀번호를 입력하세요</label>
+      <input type="password" id="password" v-model="password" class="input-field" />
+      <p class="small-text">아이디와 비밀번호는 영문/숫자로 이루어져야 합니다.</p>
+
+      <button @click="save" class="save-button">저장하기</button>
     </div>
   </template>
   
   <script>
   export default {
-    name: 'AccessPage',
+    name: 'teacher-login',
     data() {
       return {
-        usercode: '',
+        username: '',
+        password: ''
       };
     },
     methods: {
       save() {
-        // Check if the input code matches 'test123'
-        if (this.usercode === 'test123') {
-          // Show a success alert
-          alert('회원가입이 완료되었습니다.');
-          // Redirect to the Login page
-          this.$router.push('/login');
-        } else {
-          // Show an error alert if the code is incorrect
-          alert('인증 코드가 올바르지 않습니다.');
-        }
+        // 저장 로직 처리
+        //alert(`아이디: ${this.username}, 비밀번호: ${this.password}`);
+        this.$router.push('/access'); // Access.vue 페이지로 이동
       }
     }
   }

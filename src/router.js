@@ -7,6 +7,7 @@ import AccessPage from './views/Access.vue';
 import MessageCheckPage from './views/MessageCheck.vue';
 import ImageGenerationPage from './views/ImageGeneration.vue';
 import SaveImagePage from './views/SaveImage.vue';
+import LoginPage from './views/Login.vue';
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/save-image',
     name: 'save-image',
     component: SaveImagePage
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage
   }
 ];
 
