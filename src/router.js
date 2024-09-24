@@ -8,6 +8,8 @@ import MessageCheckPage from './views/MessageCheck.vue';
 import ImageGenerationPage from './views/ImageGeneration.vue';
 import SaveImagePage from './views/SaveImage.vue';
 import LoginPage from './views/Login.vue';
+import MainteacherclassPage from './views/MainTeacherclass.vue';
+
 
 const routes = [
   {
@@ -54,7 +56,13 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginPage
+  },
+  {
+    path: '/mainteacherclass',
+    name: 'mainteacherclass',
+    component: MainteacherclassPage
   }
+
 ];
 
 const router = createRouter({

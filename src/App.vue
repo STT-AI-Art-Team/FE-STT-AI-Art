@@ -7,12 +7,11 @@
       </div>
       <nav class="nav">
         <router-link to="/">MAIN</router-link>
-
       </nav>
       <div class="user-actions">
         <button class="bell"></button>
         <button class="user"></button>
-        <button class="add">추가하기 +</button>
+        <button class="login" @click="goToLogin">로그인</button>
       </div>
     </header>
     <main class="main-content">
@@ -24,35 +23,15 @@
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      classCode: '' // 입력된 코드를 저장하는 데이터
-    }
-  },
-  computed: {
-    showOnThisPage() {
-      // 홈 페이지에 있을 때만 요소를 표시
-      return this.$route.path === '/';
-    }
-  },
   methods: {
-    connectToClass() {
-      const correctCode = '123456789'; // 올바른 코드
-      if (this.classCode === correctCode) {
-        // 올바른 코드가 입력되면 /classroom 페이지로 이동
-        this.$router.push({ name: 'classroom' });
-      } else {
-        alert('잘못된 코드입니다. 다시 입력해주세요.');
-      }
-    },
-    goHome() {
-      this.$router.push({ path: '/' });
+    goToLogin() {
+      this.$router.push('/login'); // 로그인 페이지로 이동
     }
   }
 }
 </script>
+
 <style scoped>
-/* 기존 스타일 유지 */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -62,7 +41,6 @@ export default {
   margin: 0;
   padding: 0;
 }
-
 
 .header {
   display: flex;
@@ -100,21 +78,20 @@ export default {
   align-items: center;
 }
 
-.user-actions .bell, .user-actions .user, .user-actions .add {
+.user-actions .bell, .user-actions .user, .user-actions .login {
   background-color: transparent;
   border: none;
   margin-left: 10px;
   cursor: pointer;
 }
 
-.user-actions .add {
+.user-actions .login {
   background-color: #51903B;
   color: white;
   padding: 5px 10px;
   border-radius: 4px;
 }
 
-/* 메인 콘텐츠 스타일 */
 .main-content {
   margin: 20px auto;
   text-align: center;
@@ -155,7 +132,6 @@ export default {
   margin-top: 20px;
 }
 
-/* 반응형 디자인 설정 */
 @media (max-width: 600px) {
   .main-content {
     max-width: 100%;

@@ -29,7 +29,7 @@
       save() {
         // 저장 로직 처리
         //alert(`아이디: ${this.username}, 비밀번호: ${this.password}`);
-        this.$router.push('/access'); // Access.vue 페이지로 이동
+        this.$router.push('/mainteacherclass'); // Access.vue 페이지로 이동
       }
     }
   }
