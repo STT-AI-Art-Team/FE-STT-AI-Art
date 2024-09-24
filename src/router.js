@@ -4,6 +4,10 @@ import ClassroomPage from './views/ClassRoom.vue'; // Assuming ClassRoom.vue is 
 import PickTypePage from './views/PickType.vue'; // Import the new PickType.vue
 import MakeIDPage from './views/MakeID.vue'; // Import MakeID.vue
 import AccessPage from './views/Access.vue'; 
+import MessageCheckPage from './views/MessageCheck.vue';
+import ImageGenerationPage from './views/ImageGeneration.vue';
+import SaveImagePage from './views/SaveImage.vue';
+
 const routes = [
   {
     path: '/',
@@ -29,8 +33,22 @@ const routes = [
     path: '/access', // Add the new route for MakeID
     name: 'access',
     component: AccessPage // Set the component for this route
+  },
+  {
+    path: '/message-check', // 새로운 경로 추가
+    name: 'message-check',
+    component: MessageCheckPage // MessageCheck 컴포넌트로 연결
+  },
+  {
+    path: '/generate-image', // 새 경로 추가
+    name: 'generate-image',
+    component: ImageGenerationPage
+  },
+  {
+    path: '/save-image',
+    name: 'save-image',
+    component: SaveImagePage
   }
-  // Add more routes here if needed
 ];
 
 const router = createRouter({
