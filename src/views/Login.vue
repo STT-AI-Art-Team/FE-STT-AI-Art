@@ -4,12 +4,6 @@
       <span>로그인</span>
     </div>
     <div class="pick-type-container">
-      <div class="progress">
-        <p>2/3</p>
-        <div class="progress-bar">
-          <div class="progress-filled"></div>
-        </div>
-      </div>
       <h2>아이디와 비밀번호를 입력하세요!</h2>
       <label for="username" class="label">아이디를 입력하세요</label>
       <input type="text" id="username" v-model="username" class="input-field" />
@@ -59,21 +53,9 @@
     background-color: #fff;
     max-width: 448px;
     width: 100%;
-    height: 400px; /* 여기에서 높이 조정 */
+    height: auto; /* 여기에서 높이 조정 */
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  .progress {
-    text-align: left; /* 왼쪽 정렬 */
-    margin-bottom: 10px; /* 아래 요소와의 간격 */
-  }
-  .progress-bar {
-    background-color: #e0e0e0;
-    width: 100%;
-    height: 5px;
-    margin-top: 5px;
-    position: relative;
   }
   
   .progress-filled {

@@ -34,7 +34,7 @@
           // Show a success alert
           alert('회원가입이 완료되었습니다.');
           // Redirect to the Login page
-          this.$router.push('/login');
+          this.$router.push('/'); //여기 경로 바꿔야 함 - 메인 페이지 중에서 선생님 교실 페이지로
         } else {
           // Show an error alert if the code is incorrect
           alert('인증 코드가 올바르지 않습니다.');
@@ -62,7 +62,7 @@
     background-color: #fff;
     max-width: 448px;
     width: 100%;
-    height: 400px; /* 여기에서 높이 조정 */
+    height: auto; /* 여기에서 높이 조정 */
     margin-left: auto;
     margin-right: auto;
   }
@@ -81,7 +81,7 @@
   
   .progress-filled {
     background-color: #51903B;
-    width: 66%;
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
